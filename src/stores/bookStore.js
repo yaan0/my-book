@@ -19,8 +19,17 @@ export const useBookStore = defineStore("books", {
     },
   },
   actions: {
-    addBook(book) {
-      this.favoriteBooks.push(book);
+    toggleFavorites(book) {
+      const exist = this.favoriteBooks.some((el) => {
+        return el.key === book.key;
+      });
+      if (exist) {
+        this.favoriteBooks = this.favoriteBooks.filter(
+          (el) => el.key !== book.key
+        );
+      } else {
+        this.favoriteBooks.push(book);
+      }
     },
   },
 });

@@ -3,6 +3,10 @@ import Card from "@/components/Card.vue";
 import { useBookStore } from "../stores/bookStore";
 
 const bookStore = useBookStore();
+
+function toggleFavorite(book) {
+  bookStore.toggleFavorites(book);
+}
 </script>
 <template>
   <h2>Книг в избранном: {{ bookStore.favoriteBooks.length }}</h2>
@@ -14,6 +18,7 @@ const bookStore = useBookStore();
       :book="book"
       v-for="book in bookStore.getFavoriteBooks"
       :isFavorite="true"
+      @addToFavorite="toggleFavorite"
     />
   </div>
 

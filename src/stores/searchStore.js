@@ -31,7 +31,6 @@ export const useSearchStore = defineStore("search", {
         const res = await axios.get(
           `https://openlibrary.org/search.json?q=${this.searchQuery}&limit=${this.limit}&offset=${this.offset}`
         );
-        console.log(res.data);
         bookStore.foundBooks = res.data.docs;
         this.totalFoundBooks = res.data.numFound;
       } catch (error) {

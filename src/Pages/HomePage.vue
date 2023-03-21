@@ -10,7 +10,7 @@ const bookStore = useBookStore();
 const searchStore = useSearchStore();
 
 function addToFavorite(book) {
-  bookStore.addBook(book);
+  bookStore.toggleFavorites(book);
 }
 
 async function searchBook(search) {

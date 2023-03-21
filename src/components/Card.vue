@@ -36,7 +36,6 @@ const bookAuthor = computed(() => {
 
 function addToFavorite() {
   emit("addToFavorite", props.book);
-  isActive.value = true;
 }
 </script>
 <template>
